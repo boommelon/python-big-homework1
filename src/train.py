@@ -44,5 +44,6 @@ def train(
 if __name__ == "__main__":
     root = Path(__file__).resolve().parent.parent
     data_yaml = root / "data" / "hand_gesture" / "data.yaml"
-    train(data_yaml)
+    # 默认使用 GPU 训练，如需改回 CPU 可将 device 改为 "cpu" 或 None
+    train(data_yaml, device="cuda")
 
