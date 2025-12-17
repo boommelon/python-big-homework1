@@ -35,8 +35,12 @@ def predict(
 
 if __name__ == "__main__":
     root = Path(__file__).resolve().parent.parent
-    weights = root / "runs" / "detect" / "hand_gesture" / "weights" / "best.pt"
-    # 示例：单图或摄像头
-    predict(weights, source=root / "demo_images", save=True, show=False)
-    # predict(weights, source=0, save=False, show=True)
+    # 使用训练脚本生成的 best.pt 作为默认权重
+    weights = root / "runs" / "hand_gesture" / "weights" / "best.pt"
+
+    # 示例1：对 demo_images 文件夹内的图片批量推理并保存结果
+    predict(weights, source=root / "demo_images", save=True, show=False, project="runs", name="infer_demo")
+
+    # 示例2：摄像头实时推理（本地运行时可解开注释）
+    # predict(weights, source=0, save=False, show=True, device="cuda")
 

@@ -97,20 +97,22 @@ python src/infer.py
 ### 使用 YOLO CLI
 
 ```bash
-yolo detect predict model=./runs/detect/hand_gesture/weights/best.pt source=./demo_images conf=0.25
+yolo detect predict model=./runs/hand_gesture/weights/best.pt source=./demo_images conf=0.25
 ```
 
 ---
 
 ## 可视化演示界面
 
-使用 Streamlit 启动一个简单的 Web UI：
+使用 Streamlit 启动一个简单的 Web UI（图片上传 + 摄像头实时预览）：
 
 ```bash
 streamlit run app.py
 ```
 
-在浏览器中打开提示的本地地址，即可上传图片/视频进行手势检测展示。
+在浏览器中打开提示的本地地址，即可：
+- 上传图片并查看检测框与置信度；
+- 在“摄像头实时预览”页中启动本机摄像头，实时展示检测结果。
 
 ---
 
